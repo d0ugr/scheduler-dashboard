@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import classnames from "classnames";
 
+import Loading from "./Loading";
+
 class Dashboard extends Component {
 
   state = {
@@ -11,7 +13,11 @@ class Dashboard extends Component {
   render() {
     const dashboardClasses = classnames("dashboard");
 
-    return <main className={dashboardClasses} />;
+    if (this.state.loading) {
+      return <Loading />;
+    } else {
+      return <main className={dashboardClasses} />;
+    }
   }
 
 }
