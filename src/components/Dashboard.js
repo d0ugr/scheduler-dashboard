@@ -35,6 +35,10 @@ class Dashboard extends Component {
     focused: null
   }
 
+  selectPanel(id) {
+    this.setState({ focused: id });
+  }
+
   render() {
     if (this.state.loading) {
       return <Loading />;
@@ -52,6 +56,7 @@ class Dashboard extends Component {
                 id={Panel.id}
                 label={panel.label}
                 value={panel.value}
+                onSelect={this.selectPanel}
               />
             ))
           }
